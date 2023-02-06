@@ -1,3 +1,5 @@
+// Special thanks to Lyfhael
+
 const utils = require('./_utils')
 let default_settings = require('./configs/HuTao_config.json')
 let previous_page;
