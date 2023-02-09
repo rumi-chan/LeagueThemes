@@ -375,9 +375,11 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (phase == "GameStart" || phase == "InProgress") {
 			document.getElementById("hutao-bg").style.filter = 'blur(2px) brightness(0.4) saturate(1.5)';
 			document.getElementById("hutao-bg").pause()
+			document.getElementById("bg-audio").pause()
 		}
 		else {
 			hutao_play_pause()
+			audio_play_pause()
 		}
 	})
 	console.clear();
