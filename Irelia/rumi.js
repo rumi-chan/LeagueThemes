@@ -2,7 +2,6 @@
   rumi.js
   15/1/2023
   Miyasaki Rumi
-  https://www.facebook.com/d347hcl1ck/
 */
 
 function insertCss(css) {
@@ -23,6 +22,10 @@ window.addEventListener('load', () => {
           clearInterval(interval)
           new MutationObserver(mutations => {
             document.querySelector('.regalia-loaded').shadowRoot.querySelector('.regalia-profile-banner-backdrop.regalia-banner-loaded').setAttribute('style', 'opacity: 0.5; filter: grayscale(100%) brightness(3);');
+            
+            // You can literally do with CSS
+            // Unnecessary CPU usage
+            // I'm too lazy to update it :D
             const socialChatGroup = document.querySelectorAll('.group-header');
             for (let i = 0; i < socialChatGroup.length; i++) {
               socialChatGroup[i].setAttribute('style', 'background: rgba(0,0,0,0); color: dimgray;');
