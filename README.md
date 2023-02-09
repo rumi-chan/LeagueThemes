@@ -1,4 +1,4 @@
-# League of Legends client theme
+# League of Legends client themes
 ## How to use?
 Using this tool [League Loader](https://leagueloader.app/)
 <br>
