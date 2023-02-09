@@ -1,10 +1,22 @@
-# Irelia-Theme
-Spirit Blossom Irelia theme for League of Legends client.
-# Join the League Loader Community discord server
-https://discord.gg/tUGtZTCxux
-# How to install?
--  Using this tool https://github.com/nomi-san/league-loader/
--  Put assets folder to league-loader folder, put rumi.js and rumi.theme.css into plugins folder
-- Enjoy!
+# League of Legends client theme
+## How to use?
+Using this tool [League Loader](https://leagueloader.app/)
+<br>
+Join [League Loader Community](https://chat.leagueloader.app/) Discord server!
 
+## Themes
+<details open>
+<summary>Hu Tao theme</summary>
+  
+<video src="https://user-images.githubusercontent.com/59478113/217834981-941e4ba1-fe6e-46bd-bdb4-980b194f248c.mp4"></video>
+
+</details>
+
+<details open>
+<summary>Spirit Blossom Irelia theme</summary>
+  
 ![League of Legends 1_15_2023 9_15_23 PM](https://user-images.githubusercontent.com/59478113/212546987-b21ebd93-8cad-4c23-a444-521647f3e6fa.png)
+  
+</details>
+
+***will be updated***
