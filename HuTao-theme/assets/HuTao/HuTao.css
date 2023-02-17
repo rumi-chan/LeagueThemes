@@ -297,6 +297,7 @@ div[data-screen-name="rcp-fe-lol-home"] .rcp-fe-lol-home-sub-nav {
     background-color: black;
     height: 21px;
     cursor: pointer;
+	margin-left: 6px;
 }
 
 .pause-audio-icon {
@@ -408,3 +409,4 @@ div[class="stats-backdrop"] {
  .tft-find-match-button-container {
 	filter: hue-rotate(170deg);
  }
+ 

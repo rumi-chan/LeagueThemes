@@ -178,11 +178,11 @@ function create_webm_buttons() {
 	nextBgIcon.setAttribute("src", "//assets/HuTao/Icon/next_button.png")
 	document.getElementsByClassName("rcp-fe-lol-home")[0].appendChild(container)
 	container.append(pauseBg)
-	container.append(nextBg)
 	container.append(pauseAudio)
+	container.append(nextBg)
 	pauseBg.append(pauseBgIcon)
-	nextBg.append(nextBgIcon)
 	pauseAudio.append(pauseAudioIcon)
+	nextBg.append(nextBgIcon)
 }
 
 
