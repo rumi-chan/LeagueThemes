@@ -293,6 +293,12 @@ let pageChangeMutation = (node) => {
 	else if (previous_page == "rcp-fe-lol-collections" && brightness_modifiers.indexOf(pagename) == -1) {
 		hutao_bg_elem.style.filter = 'brightness(0.7) saturate(0.8)';
 	}
+	if (pagename == "rcp-fe-lol-yourshop") {
+		hutao_bg_elem.style.filter = 'brightness(0.3)';
+	}
+	else if (previous_page == "rcp-fe-lol-yourshop" && brightness_modifiers.indexOf(pagename) == -1) {
+		hutao_bg_elem.style.filter = 'brightness(0.7) saturate(0.8)';
+	}
 	if (pagename == "rcp-fe-lol-profiles-main") {
 		let rankedNode = document.querySelector('[section-id="profile_subsection_leagues"]')
 

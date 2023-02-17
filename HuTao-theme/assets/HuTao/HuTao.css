@@ -410,3 +410,18 @@ div[class="stats-backdrop"] {
 	filter: hue-rotate(170deg);
  }
  
+ .yourshop-root {
+	background-image: none;
+ }
+
+ .npe-root-component {
+	background-image: none;
+ }
+
+ .ranked-rewards-component {
+	background: none;
+ }
+
+ .lol-leagues .smoke-background-container {
+	display: none;
+ }
