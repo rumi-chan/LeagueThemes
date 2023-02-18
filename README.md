@@ -6,6 +6,13 @@ Join [League Loader Community](https://chat.leagueloader.app/) Discord server!
 
 ## Themes
 <details open>
+<summary>Transparent</summary>
+  
+![image_2023-02-18_21-20-05](https://user-images.githubusercontent.com/59478113/219870910-b09bca14-9716-4841-8991-b45311a6c147.png)
+
+</details>
+
+<details open>
 <summary>Hu Tao theme</summary>
   
 <video src="https://user-images.githubusercontent.com/59478113/217834981-941e4ba1-fe6e-46bd-bdb4-980b194f248c.mp4"></video>
