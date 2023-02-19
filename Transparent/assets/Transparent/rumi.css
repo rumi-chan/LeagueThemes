@@ -129,3 +129,10 @@ div[data-screen-name='rcp-fe-lol-navigation-screen'] {
 .v2-lobby-root-component .navbar-blur {
 	background: none;
 }
+.career-postgame-progression-component .postgame-champion-background-wrapper {
+	background: none;
+}
+.postgame-root-component .postgame-header-section.progression-tab {
+	background: none;
+	backdrop-filter: none;
+}
