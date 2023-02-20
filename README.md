@@ -1,4 +1,6 @@
 # League of Legends client themes
+## Contribution
+If you want to contribute your theme, feel free to open pull requests.
 ## How to use?
 Using this tool [League Loader](https://leagueloader.app/)
 <br>
