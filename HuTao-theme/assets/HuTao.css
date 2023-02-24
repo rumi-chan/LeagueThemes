@@ -18,15 +18,6 @@ iframe .bg-cover {
 	opacity:0!important
 }
 
-lol-uikit-section[section-id='lunar-revel-embed-2023'] {
-    opacity: 0!important;
-	visibility: hidden;
-}
-
-lol-uikit-navigation-item[item-id="lunar-revel-embed-2023"] {
-	display:none!important
-}
-
 .lol-social-sidebar.ember-view {
 	background: transparent!important
 }
@@ -360,22 +351,22 @@ div[class="stats-backdrop"] {
 
 /* Icon Tinh hoa lam */
 /* .currency-be-icon-static {
-	background-image: url('//assets/hutao/Icon/be.png') !important;
+	background-image: url('//assets/Icon/be.png') !important;
 } */
 
 /* Icon RP */
 /* .currency-rp {
-	background-image: url('//assets/hutao/Icon/rp.png') !important;
+	background-image: url('//assets/Icon/rp.png') !important;
 } */
 
 .ticker-button {
-	background-image: url("//assets/HuTao/Icon/ticker.png") !important;
+	background-image: url(./assets/Icon/ticker.png) !important;
 	transition: all 0.2s ease-in-out;
  }
  
 
  .lol-loading-screen-container .lol-loading-screen-lol-icon {
-	background: url('//assets/HuTao/Icon/logo.png');
+	background: url(./assets/Icon/logo.png);
 	background-repeat: no-repeat;
 	background-size: contain;
  }

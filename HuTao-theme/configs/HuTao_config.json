@@ -1,10 +1,10 @@
 {
-	"css_file": "//assets/HuTao/HuTao.css",
+	"css_file": "//plugins/HuTao-theme/assets/HuTao.css",
 	"default_wallpaper":"hutao2.webm",
-	"default_wallpaper_src":"//assets/HuTao/Backgrounds/hutao2.webm",
+	"default_wallpaper_src":"//plugins/HuTao-theme/assets/Backgrounds/hutao2.webm",
 	"wallpaper_list": ["hutao.webm", "hutao2.webm", "hutao3.webm"],
 	"default_animated":false,
-    "audio_src": "//assets/HuTao/Backgrounds/hutao.mp3",
+    "audio_src": "//plugins/HuTao-theme/assets/Backgrounds/hutao.mp3",
 	"___Audio volume___": "(0.0 is mute, 1.0 is highest)",
 	"default_sound_volume": 0.2,
 	"default_sound_autoplay": true,

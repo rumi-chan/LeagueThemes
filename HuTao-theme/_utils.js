@@ -1,14 +1,15 @@
 // Special thanks to Lyfhael
-
+const version = "1.2.0"
 let riotclient_auth, riotclient_port;
 let regex_rc_auth = /^--riotclient-auth-token=(.+)$/
 let regex_rc_port = /^--riotclient-app-port=([0-9]+)$/
 let phase; // automatically updated to current gameflow phase
-let debug_sub = false // to display debug messages
+let debug_sub = true // to display debug messages
 let routines = [] // array of functions that will be called routinely
 let mutationCallbacks = [] // array of functions that will be called in mutation observer
 let pvp_net_id; // automatically updated to your pvp.net id
 let summoner_id; // automatically updated to your summonerId
+let summoner_region; // player current region
 
 /** used to add css files to document body */
 function addCss(filename) {
@@ -39,17 +40,23 @@ async function fetch_riotclient_credentials() {
 	}).then(response => response.json()).then(data => {
 		data.forEach(elem => {
 			if (regex_rc_auth.exec(elem))
-				to_export.riotclient_auth = regex_rc_auth.exec(elem)[1];
+				utils.riotclient_auth = regex_rc_auth.exec(elem)[1];
 			else if (regex_rc_port.exec(elem))
-				to_export.riotclient_port = regex_rc_port.exec(elem)[1];
+				utils.riotclient_port = regex_rc_port.exec(elem)[1];
 		});
 	})
 	if (debug_sub)
-		console.log(to_export.riotclient_auth, to_export.riotclient_port)
+		console.log(utils.riotclient_auth, utils.riotclient_port)
 }
 
 /** Callback function to be sent in subscribe_endpoint() to update the variable holding user pvp.net infos */
-let updateUserPvpNetInfos = async message => { let data = JSON.parse(message["data"])[2]["data"]; if (data != undefined) { to_export.pvp_net_id = data["id"]; to_export.summoner_id = data["summonerId"] } }
+let updateUserPvpNetInfos = async message => {
+	let data = JSON.parse(message["data"])[2]["data"];
+	if (data != undefined) {
+		utils.pvp_net_id = data["id"];
+		utils.summoner_id = data["summonerId"]
+	}
+}
 
 /** Callback function to be sent in subscribe_endpoint() to update the variable monitoring the gameflow phase */
 let updatePhaseCallback = async message => { phase = JSON.parse(message["data"])[2]["data"]; }
@@ -70,7 +77,7 @@ function mutationObserverAddCallback(callback, target) {
 	mutationCallbacks.push({ "callback": callback, "targets": target })
 }
 
-let to_export = {
+let utils = {
 	riotclient_auth: riotclient_auth,
 	riotclient_port: riotclient_port,
 	phase: phase,
@@ -82,9 +89,9 @@ let to_export = {
 	addCss: addCss
 }
 
-module.exports = to_export
+export default utils
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 	fetch_riotclient_credentials()
 	subscribe_endpoint("/lol-gameflow/v1/gameflow-phase", updatePhaseCallback)
 	subscribe_endpoint("/lol-chat/v1/me", updateUserPvpNetInfos)
@@ -101,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				if (addedNode.nodeType === Node.ELEMENT_NODE && addedNode.classList) {
 					for (let addedNodeClass of addedNode.classList) {
 						for (let obj of mutationCallbacks) {
-							if (obj.targets.indexOf(addedNodeClass) != -1 || "*" in obj.targets) {
+							if (obj.targets.indexOf(addedNodeClass) != -1 || obj.targets.indexOf("*") != -1) {
 								obj.callback(addedNode)
 							}
 						}

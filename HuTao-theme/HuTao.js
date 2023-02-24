@@ -1,7 +1,9 @@
 // Special thanks to Lyfhael
 
-const utils = require('./_utils')
-let default_settings = require('./configs/HuTao_config.json')
+import utils from './_utils'
+import data from './configs/HuTao_config.json'
+
+let default_settings = data
 let previous_page;
 let ranked_observer;
 let patcher_go_to_default_home_page = true;
@@ -99,10 +101,10 @@ function play_pause_set_icon(elem) {
 		return;
 	}
 	if (!force_bg_pause) {
-		pause_bg_icon.setAttribute("src", "//assets/HuTao/Icon/pause_button.png")
+		pause_bg_icon.setAttribute("src", "//plugins/HuTao-theme/assets/Icon/pause_button.png")
 	}
 	else {
-		pause_bg_icon.setAttribute("src", "//assets/HuTao/Icon/play_button.png")
+		pause_bg_icon.setAttribute("src", "//plugins/HuTao-theme/assets/Icon/play_button.png")
 	}
 
 }
@@ -114,10 +116,10 @@ function play_pause_set_icon_audio(elem) {
 		return;
 	}
 	if (!force_audio_pause) {
-		pause_audio_icon.setAttribute("src", "//assets/HuTao/Icon/audio.png")
+		pause_audio_icon.setAttribute("src", "//plugins/HuTao-theme/assets/Icon/audio.png")
 	}
 	else {
-		pause_audio_icon.setAttribute("src", "//assets/HuTao/Icon/mute.png")
+		pause_audio_icon.setAttribute("src", "//plugins/HuTao-theme/assets/Icon/mute.png")
 	}
 
 }
@@ -129,7 +131,7 @@ function next_wallpaper() {
 	wallpapers.push(wallpapers.shift())
 	document.querySelector(":root").classList.add(wallpapers[0].replace(/\.[a-zA-Z]+$/, '-vars'))
 	setTimeout(function () {
-		hutaoBg.src = `//assets/HuTao/Backgrounds/${wallpapers[0]}`
+		hutaoBg.src = `//plugins/HuTao-theme/assets/Backgrounds/${wallpapers[0]}`
 		hutao_play_pause()
 		hutaoBg.classList.remove("webm-hidden");
 	}, 500);
@@ -175,7 +177,7 @@ function create_webm_buttons() {
 		next_wallpaper()
 	})
 
-	nextBgIcon.setAttribute("src", "//assets/HuTao/Icon/next_button.png")
+	nextBgIcon.setAttribute("src", "//plugins/HuTao-theme/assets/Icon/next_button.png")
 	document.getElementsByClassName("rcp-fe-lol-home")[0].appendChild(container)
 	container.append(pauseBg)
 	container.append(pauseAudio)
@@ -200,6 +202,17 @@ function go_to_default_home_page() {
 	if (default_settings["default_home_page"]) {
 		document.querySelector(`lol-uikit-navigation-item[item-id='${default_settings["default_home_page"]}']`).click()
 	}
+}
+
+function patch_default_home_page(){
+	let loop = 0
+	let intervalId = window.setInterval(() => {
+		if (loop >= 5) {
+			window.clearInterval(intervalId)
+		}
+		go_to_default_home_page()
+		loop += 1
+	}, 200)
 }
 
 function add_hutao_home_page() {
@@ -248,6 +261,9 @@ let pageChangeMutation = (node) => {
 		add_hutao_home_page()
 		add_hutao_home_navbar()
 		go_to_default_home_page()
+		if (previous_page == "rcp-fe-lol-parties" ){
+			patch_default_home_page()
+		}
 	}
 	else if (pagename != "rcp-fe-lol-navigation-screen" && pagename != "window-controls" && pagename != "rcp-fe-lol-home" && pagename != "social") {
 		if (document.getElementsByClassName("webm-bottom-buttons-container").length) {
@@ -345,7 +361,7 @@ window.addEventListener('load', () => {
 })
 
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
 	const video = document.createElement('video');
 	video.id = 'hutao-bg';
 	video.setAttribute('autoplay', '');
